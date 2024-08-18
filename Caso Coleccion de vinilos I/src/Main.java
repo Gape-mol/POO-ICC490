@@ -53,27 +53,32 @@ public class Main {
     }
 
     public static boolean buscarArtista(String m[][], String artista){
-        boolean existe = false; //Creo un booleano para guardar si existe o no el artista en la coleccion
         for (int i = 0; i < m.length; i++) { //Lo mismo que en las anteriores
             if (m[i][0] != null && m[i][0].equals(artista)){ // Aca en este if, hago dos comprobaciones, que el espacio donde va el artista no este vacio, y luego que ese espacio sea igual al nombre del artista dado.
-                existe = true; //Cambio el booleano a verdad y rompo el for
-                break;
+                return true;
             }
         }
-        return existe;
+        return false;
     }
     public static void mostrarColeccion(String m[][]){
-
+        for (int i = 0; i < m.length; i++) {
+            if (m[i][0] != null) {
+                System.out.println("Artista:" + m[i][0]);
+                System.out.println("lp:" + m[i][1]);
+                System.out.println("Año:" + m[i][2]);
+            }
+        }
     }
 
     public static void  mostrarTotal(String m[][]){
-
+        System.out.println("El total en tu coleccion es: " + totalVinilos(m));
     }
 
     public static void mostrarDisponibles(String m[][]) {
         int disponibles = disponibles(m);
         System.out.println("Cantidad disponible: " + disponibles); //Se llama a la funcion disponibles y se imprime la cantidad
     }
+
     public  static int disponibles(String m[][]){
         int cantidad = 0;
         for (int i = 0; i < m.length; i++){
@@ -84,6 +89,11 @@ public class Main {
         return cantidad;
     }
     public static void mostrarBusquedaArtista(String m[][], String artista){
-
+        for (int i = 0; i < m.length; i++) { //Lo mismo que en las anteriores
+            if (m[i][0] != null && m[i][0].equals(artista)){ // Este if es igual al de buscar artista
+                System.out.println("lp:" + m[i][1]);
+                System.out.println("Año:" + m[i][2]);
+            }
+        }
     }
 }
